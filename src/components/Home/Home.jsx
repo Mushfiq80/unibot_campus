@@ -45,7 +45,7 @@ const Home = () => {
                                 </div>
                                 <div>
                                     <h2 className="text-xl font-semibold  leading-loose">Janusz Mokrzycki</h2>
-                                    <p class="text-neutral-400 text-base font-normal font-['Inter'] leading-[4px]">Brand Manager</p>
+                                    <p className="text-neutral-400 text-base font-normal font-['Inter'] leading-[4px]">Brand Manager</p>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +63,7 @@ const Home = () => {
                                 </div>
                                 <div>
                                     <h2 className="text-xl font-semibold font-['Inter'] leading-loose">Janusz Mokrzycki</h2>
-                                    <p class="text-neutral-400 text-base font-normal font-['Inter'] leading-[4px]">Brand Manager</p>
+                                    <p className="text-neutral-400 text-base font-normal font-['Inter'] leading-[4px]">Brand Manager</p>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +82,7 @@ const Home = () => {
                                 </div>
                                 <div>
                                     <h2 className="text-xl font-semibold font-['Inter'] leading-loose">Janusz Mokrzycki</h2>
-                                    <p class="text-neutral-400 text-base font-normal font-['Inter'] leading-[4px]">Brand Manager</p>
+                                    <p className="text-neutral-400 text-base font-normal font-['Inter'] leading-[4px]">Brand Manager</p>
                                 </div>
                             </div>
                         </div>
