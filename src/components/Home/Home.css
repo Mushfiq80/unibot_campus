@@ -1,0 +1,5 @@
+.gradient-background {
+    background: linear-gradient(135deg, #146C94, #19A7CE);
+    /* Optionally, you can set a height to make sure the gradient fills the entire viewport */
+    height: 100vh;
+}
