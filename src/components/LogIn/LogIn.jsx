@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import mobBot from "../../assets/mobilebot1.png";
 import { Link } from 'react-router-dom';
 import GroupSvg from '../../assets/Group.svg';
@@ -11,16 +11,24 @@ const LogIn = () => {
         event.preventDefault();
         setShowPassword(!showPassword);
     };
+
+    useEffect(() => {
+        // Prevent scrolling when component mounts
+        document.body.style.overflow = 'hidden';
+
+        // Re-enable scrolling when component unmounts
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, []);
+
     return (
-        <div className="bg-white px-32 text-stone-900 font-['Inter'] flex justify-between items-center">
-            <div className='mx-auto w-1/2'>
+        <div className="fixed top-0 left-0 right-0 bottom-0 bg-white px-8 sm:px-16 md:px-20 text-stone-900 font-['Inter'] flex flex-col md:flex-row justify-between items-center overflow-auto">
+            <div className='mx-auto md:w-1/2 mb-8 md:mb-0'>
                 <div>
-                    <h2 className="text-[32px] font-medium">Log in for unibot</h2>
-                    <p className="text-base font-normal">Enter your details to login or <span className='text-cyan-500'>
-                        <Link to='/signup'>sign up </Link></span> </p>
+                    <h2 className="text-2xl sm:text-3xl font-medium">Log in for unibot</h2>
+                    <p className="text-base font-normal">Enter your details to login or <span className='text-cyan-500'><Link to='/signup'>sign up </Link></span></p>
                 </div>
-
-
                 <form className='mt-6'>
                     <div className="mb-4">
                         <label className="block text-gray-700 font-semibold mb-2" htmlFor="email">Email</label>
@@ -36,15 +44,12 @@ const LogIn = () => {
                     <button className="w-full mt-4 bg-cyan-700 text-white py-2 px-4 rounded-3xl hover:bg-cyan-600 transition duration-200">Log In</button>
                 </form>
             </div>
-            <div>
-                <img className='' src={mobBot} alt="" style={{ zIndex: 10 }} />
+            <img src={mobBot} alt="" className="md:ml-8 z-20" />
+            <div className="">
+                
+                <img src={GroupSvg} alt="" className="absolute -bottom-2 right-0 opacity-40 hidden md:block" style={{ zIndex: 0 }} />
+                <img src={bubbleSvg} alt="" className="absolute bottom-0 right-0 mr-5 mb-5 hidden md:block" style={{ zIndex: 0 }} />
             </div>
-            <div>
-                <img src={GroupSvg} alt="" className="absolute -bottom-10 -right-10 mr-10 mb-10 opacity-40" style={{ zIndex: 0 }} />
-                <img src={bubbleSvg} alt="" className="absolute bottom-0 right-0 mr-5 mb-5" style={{ zIndex: 0 }} />
-
-            </div>
-
         </div>
     );
 };

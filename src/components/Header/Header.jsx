@@ -25,24 +25,25 @@ const Header = () => {
     useEffect(() => {
         preloadImages();
     }, []);
+
     return (
-        <div className={`absolute top-0 left-0 right-0 z-10 mx-16 flex justify-between items-center ${location.pathname === '/' ? 'text-white' : 'text-black'}`}>
-            <div className='flex justify-between items-center gap-20'>
+        <div className={`absolute top-0 left-0 right-0 z-10 mx-4 sm:mx-8 md:mx-16 lg:mx-20 flex justify-between items-center ${location.pathname === '/' ? 'text-white' : 'text-black'}`}>
+            <div className='flex justify-between items-center gap-5 sm:gap-10'>
                 <div>
                     <Link to='/'>{location.pathname === '/' ? <img src={logo} alt="logo" /> : <img src={logo1} alt="logo" />}</Link>
                     <Link to='/'>{location.pathname === '/' ? <img src={title} alt="title" /> : <img src={title1} alt="title" />}</Link>
                 </div>
-                <div>
-                    <ul className='flex gap-8'>
+                <div className="sm:flex">
+                    <ul className='flex gap-5'>
                         <Link to='/'>Home</Link>
                         <Link to='about'>About Us</Link>
                         <Link to='faq'>FAQ</Link>
                     </ul>
                 </div>
             </div>
-            <div className='flex gap-5'>
-                <button className="w-1/2 btn btn-ghost rounded-3xl shadow-lg border-none hover:text-white hover:bg-black"><Link to="/login">Login</Link></button>
-                <button className="w-1/2 btn rounded-3xl bg-white text-black border-none hover:text-white"><Link to="signup">Sign Up</Link></button>
+            <div className='flex gap-4 sm:gap-5 md:gap-8'>
+                <button className="w-1/2 sm:w-auto btn btn-ghost rounded-3xl shadow-lg border-none hover:text-white hover:bg-black"><Link to="/login">Login</Link></button>
+                <button className="w-1/2 sm:w-auto btn rounded-3xl bg-white text-black border-none hover:text-white"><Link to="signup">Sign Up</Link></button>
             </div>
         </div>
     );

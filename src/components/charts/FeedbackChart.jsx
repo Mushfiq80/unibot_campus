@@ -36,28 +36,47 @@ const xLabels = [
 ];
 
 export default function FeedbackChart() {
+  const parentRef = React.useRef(null);
+  const [chartWidth, setChartWidth] = React.useState(0);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      if (parentRef.current) {
+        const width = parentRef.current.clientWidth;
+        setChartWidth(width);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <ChartContainer
-      width={1300}
-      height={160}
-      series={[{ type: 'line', data: pData }]}
-      xAxis={[{ scaleType: 'point', data: xLabels }]}
-      sx={{
-        [`& .${lineElementClasses.root}`]: {
-          stroke: '#8884d8',
-          strokeWidth: 2,
-        },
-        [`& .${markElementClasses.root}`]: {
-          stroke: '#8884d8',
-          scale: '0.6',
-          fill: '#fff',
-          strokeWidth: 2,
-        },
-      }}
-      disableAxisListener
-    >
-      <LinePlot />
-      <MarkPlot />
-    </ChartContainer>
+    <div ref={parentRef} style={{ width: '100%' }}>
+      <ChartContainer
+        width={chartWidth}
+        height={160}
+        series={[{ type: 'line', data: pData }]}
+        xAxis={[{ scaleType: 'point', data: xLabels }]}
+        sx={{
+          [`& .${lineElementClasses.root}`]: {
+            stroke: '#8884d8',
+            strokeWidth: 2,
+          },
+          [`& .${markElementClasses.root}`]: {
+            stroke: '#8884d8',
+            scale: '0.6',
+            fill: '#fff',
+            strokeWidth: 2,
+          },
+        }}
+        disableAxisListener
+      >
+        <LinePlot />
+        <MarkPlot />
+      </ChartContainer>
+    </div>
   );
 }

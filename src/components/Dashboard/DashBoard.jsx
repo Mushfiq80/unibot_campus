@@ -23,14 +23,12 @@ const DashBoard = () => {
     
     return (
         <div className={`dashboard ${theme}`}>
-            <div className="header flex justify-between px-8 items-center shadow-xl">
-                <div className='flex gap-5 items-center'>
-                    <span>
-                        <IoReorderThreeSharp className='text-3xl' />
-                    </span>
+            <div className="header flex flex-col sm:flex-row justify-between px-4 sm:px-8 items-center shadow-xl">
+                <div className='flex items-center sm:gap-5'>
+                    <IoReorderThreeSharp className='text-3xl' />
                     <div className={`greeting ${theme}`}>
-                        <h2>Good morning, Mohammed Naeem</h2>
-                        <h3>Quickly access your recent dashboards</h3>
+                        <h2 className="text-lg sm:text-xl">Good morning, Mohammed Naeem</h2>
+                        <h3 className="text-sm sm:text-base">Quickly access your recent dashboards</h3>
                     </div>  
                 </div>
                 <div className='flex gap-5'>
