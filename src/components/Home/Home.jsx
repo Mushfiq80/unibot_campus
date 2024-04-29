@@ -5,17 +5,28 @@ import star from "../../assets/star.png";
 import t1 from "../../assets/t1.png";
 import t2 from "../../assets/t2.png";
 import t3 from "../../assets/t3.png";
+import { Link } from 'react-router-dom';
+import StarRating from './starRating';
 
 const Home = () => {
+    const openModal = (event) => {
+        event.preventDefault();
+        document.getElementById('my_modal_4').showModal();
+    };
+
+    const closeModal = (event) => {
+        event.preventDefault();
+        document.getElementById('my_modal_4').close();
+    }; 
     return (
         <div className="relative font-['Inter']">
             <div className='flex justify-between items-center px-20 gradient-background pt-32'>
                 <div>
-                    <h2 className='text-6xl text-white font-semibold'>Connect with your <br/>
-                    Campus through</h2>
+                    <h2 className='text-6xl text-white font-semibold'>Connect with your <br />
+                        Campus through</h2>
                     <h2 className='text-6xl text-yellow-400 font-semibold' >UniBot</h2>
 
-                    <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg rounded-3xl bg-white text-black mt-16 border-none hover:text-white">Start Chat</button>
+                    <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg rounded-3xl bg-white text-black mt-10 border-none hover:text-white" onClick={openModal}>Start Chat</button>
 
                 </div>
                 <img src={bot} alt="bot" />
@@ -35,7 +46,7 @@ const Home = () => {
                     {/* card 1 */}
                     <div className="card rounded-lg w-96 bg-white shadow-xl px-4">
                         <div className="card-body">
-                            <h2 className="card-title ">Stars Later</h2>
+                            <h2 className="card-title "><StarRating rating={5}/></h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                             <div className='flex gap-5 mt-4'>
                                 <div className="avatar">
@@ -53,7 +64,7 @@ const Home = () => {
                     {/* card 2 */}
                     <div className="card rounded-lg w-96 bg-white shadow-xl px-4">
                         <div className="card-body">
-                            <h2 className="card-title">Stars Later</h2>
+                            <h2 className="card-title"><StarRating rating={4}/></h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                             <div className='flex gap-5 mt-4'>
                                 <div className="avatar">
@@ -71,7 +82,7 @@ const Home = () => {
                     {/* card 3 */}
                     <div className="card rounded-lg w-96 bg-white  shadow-xl px-4">
                         <div className="card-body">
-                            <h2 className="card-title">Stars Later</h2>
+                            <h2 className="card-title"><StarRating rating={3} /></h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
                             <div className='flex gap-5 mt-4'>
@@ -89,6 +100,20 @@ const Home = () => {
 
                     </div>
                 </div>
+            </div>
+            <div>
+                <dialog id="my_modal_4" className="modal">
+                    <div className="modal-box w-1/2 max-w-5xl text-stone-800 bg-slate-100 text-center">
+                        <h3 className="font-bold text-lg">You are not Logged in!</h3>
+                        <p className="py-4">Please Log In to access the chat</p>
+                        <div className="modal-action flex justify-center">
+                            <form>
+                                {/* Add event listener to the button */}
+                                <button className="btn max-w-5xl w-full bg-cyan-800 text-white text rounded-xl" onClick={closeModal}><Link to="login">Log In</Link></button>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
             </div>
         </div>
 

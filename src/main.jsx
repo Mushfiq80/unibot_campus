@@ -13,7 +13,7 @@ import FAQ from './components/FAQ/FAQ.jsx';
 import SignUp from './components/Signup/SignUp.jsx';
 import LogIn from './components/LogIn/LogIn.jsx';
 import DashBoard from './components/Dashboard/DashBoard.jsx';
-import ChartStudentUse from './components/charts/ChartStudentUse.jsx';
+import Success from './components/Success/Success.jsx';
 
 
 const router = createBrowserRouter([
@@ -46,10 +46,7 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: <DashBoard></DashBoard>,
       },
-      {
-        path: "/chart",
-        element: <ChartStudentUse></ChartStudentUse>,
-      },
+      
 
 
     ],

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import mobBot from "../../assets/mobilebot1.png";
 import { Link } from 'react-router-dom';
+import GroupSvg from '../../assets/Group.svg';
+import bubbleSvg from '../../assets/Bubble.svg';
 
 const LogIn = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -10,7 +12,7 @@ const LogIn = () => {
         setShowPassword(!showPassword);
     };
     return (
-        <div className="bg-white py-16 px-32 text-stone-900 font-['Inter'] flex justify-between items-center">
+        <div className="bg-white px-32 text-stone-900 font-['Inter'] flex justify-between items-center">
             <div className='mx-auto w-1/2'>
                 <div>
                     <h2 className="text-[32px] font-medium">Log in for unibot</h2>
@@ -35,7 +37,12 @@ const LogIn = () => {
                 </form>
             </div>
             <div>
-                <img src={mobBot} alt="" />
+                <img className='' src={mobBot} alt="" style={{ zIndex: 10 }} />
+            </div>
+            <div>
+                <img src={GroupSvg} alt="" className="absolute -bottom-10 -right-10 mr-10 mb-10 opacity-40" style={{ zIndex: 0 }} />
+                <img src={bubbleSvg} alt="" className="absolute bottom-0 right-0 mr-5 mb-5" style={{ zIndex: 0 }} />
+
             </div>
 
         </div>
