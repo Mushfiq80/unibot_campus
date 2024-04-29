@@ -41,8 +41,8 @@ const Header = () => {
                 </div>
             </div>
             <div className='flex gap-5'>
-                <button className="w-1/2 btn btn-ghost rounded-3xl shadow-lg border-none hover:text-white hover:bg-black">Login</button>
-                <button className="w-1/2 btn rounded-3xl bg-white text-black border-none hover:text-white">Sign Up</button>
+                <button className="w-1/2 btn btn-ghost rounded-3xl shadow-lg border-none hover:text-white hover:bg-black"><Link to="/login">Login</Link></button>
+                <button className="w-1/2 btn rounded-3xl bg-white text-black border-none hover:text-white"><Link to="signup">Sign Up</Link></button>
             </div>
         </div>
     );

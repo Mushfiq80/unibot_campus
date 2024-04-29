@@ -4,12 +4,17 @@ import './index.css'
 import {
   createBrowserRouter,
   RouterProvider,
+  useRoutes,
 } from "react-router-dom";
 import Home from './components/Home/Home.jsx';
 import Main from './layout/Main.jsx';
 import About from './components/About/About.jsx';
 import FAQ from './components/FAQ/FAQ.jsx';
 import SignUp from './components/Signup/SignUp.jsx';
+import LogIn from './components/LogIn/LogIn.jsx';
+import DashBoard from './components/Dashboard/DashBoard.jsx';
+import ChartStudentUse from './components/charts/ChartStudentUse.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -30,14 +35,31 @@ const router = createBrowserRouter([
       },
       {
         path: "/signup",
-        element: <SignUp></SignUp>
+        element: <SignUp></SignUp>,
+        
       },
+      {
+        path: "/login",
+        element: <LogIn></LogIn>,
+      },
+      {
+        path: "/dashboard",
+        element: <DashBoard></DashBoard>,
+      },
+      {
+        path: "/chart",
+        element: <ChartStudentUse></ChartStudentUse>,
+      },
+
+
     ],
   },
 ]);
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={router}>
+    </RouterProvider>
   </React.StrictMode>,
 )
